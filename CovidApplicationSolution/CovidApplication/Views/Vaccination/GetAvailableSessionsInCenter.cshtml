@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CovidApplication.Models.SessionDetails>
+
+@{
+    ViewBag.Title = "GetAvailableSessionsInCenter";
+}
+
+<h3 style="text-emphasis-color : green; text-align: center">Get Available Sessions in the Center.</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailabeSlots)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slots)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vaccine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinimumAgeLimit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailabeSlots)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slots)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vaccine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinimumAgeLimit)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,9 @@
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\bin\Debug\CovidLibrary.dll
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\bin\Debug\CovidLibrary.pdb
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\obj\Debug\CovidLibrary.csprojAssemblyReference.cache
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\obj\Debug\CovidLibrary.csproj.CoreCompileInputs.cache
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\obj\Debug\CovidLibrary.dll
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\obj\Debug\CovidLibrary.pdb
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\v-hibajp\Desktop\CovidApplicationSolution\CovidLibrary\obj\Debug\CovidLibrary.csproj.CopyComplete

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CovidApplication.Models.StateDetails>
+
+@{
+    ViewBag.Title = "GetAllStates";
+}
+
+<h3 style="text-decoration-color : green; text-align: center">List of States for which details are available.</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StateName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateName)
+            </td>
+            <td>
+                @Html.ActionLink("District Details", "GetDistrictDetails", new { stateId = item.StateId })
+            </td>
+        </tr>
+    }
+
+</table>

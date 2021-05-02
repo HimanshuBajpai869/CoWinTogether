@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CovidApplication.Models.CenterDetails>
+
+@{
+    ViewBag.Title = "GetVaccinationCalenderForDistrict";
+}
+
+<h3 style="text-emphasis-color : green; text-align : center">List of Centers Available in @ViewBag.DistrictName in state @ViewBag.State</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CenterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pincode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fees)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pincode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fees)
+        </td>
+        <td>
+            @Html.ActionLink("AvailableSessions", "GetAvailableSessionsInCenter", new { districtID = item.DistrictId, centerID = item.CenterId })
+        </td>
+    </tr>
+}
+
+</table>

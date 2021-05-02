@@ -1,0 +1,106 @@
+﻿@model CovidApplication.Models.CenterDetails
+
+@{
+    ViewBag.Title = "VaccinationForYoung";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-decoration-color : green; text-align: center">Details of the centers where vaccination is available is available for 18+.</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StateName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.StateName, ViewBag.States as SelectList, "Select State", new { @class = "form-control", @OnChange = "FillCity();" })
+            @Html.ValidationMessageFor(model => model.StateName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DistrictName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.DistrictName,
+           new SelectList(Enumerable.Empty<SelectListItem>(), "DistrictID", "DistrictName"),
+                  "Select city",
+                  new { @class = "form-control", @OnChange = "FillPincode();" })
+            @Html.ValidationMessageFor(m => m.DistrictName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pincode, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Pincode,
+           new SelectList(Enumerable.Empty<SelectListItem>(), "Pincode", "Pincode"),
+                  "Select Pincode",
+                  new { @class = "form-control", @OnChange = "RenderView();" })
+            @Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div id="partialPlaceHolder">
+    </div>
+</div>
+}
+
+@section Scripts {
+    <script>
+        function FillCity() {
+            var stateId = $('#StateName').val();
+            $.ajax({
+                url: '/State/FillCity',
+                type: "GET",
+                dataType: "JSON",
+                data: { stateId: stateId },
+                success: function (cities) {
+                    $("#DistrictName").html(""); // clear before appending new list
+                    $.each(cities, function (i, city) {
+                        $("#DistrictName").append(
+                            $('<option></option>').val(city.DistrictID).html(city.DistrictName));
+                    });
+                }
+            });
+        }
+        function FillPincode() {
+            var districtId = $('#DistrictName').val();
+            $.ajax({
+                url: '/Vaccination/FillPincode',
+                type: "GET",
+                dataType: "JSON",
+                data: { districtId: districtId },
+                success: function (pincodes) {
+                    $("#Pincode").html(""); // clear before appending new list
+                    $.each(pincodes, function (i, pc) {
+                        $("#Pincode").append(
+                            $('<option></option>').val(pc).html(pc));
+                    });
+                }
+            });
+        }
+        function RenderView() {
+            var districtId = $('#DistrictName').val();
+            var pincode = $('#Pincode').val();
+            $.ajax({
+                url: '/Vaccination/CenterDetailsBasedOnPinCode',
+                type: "GET",
+                dataType: "html",
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                data: { districtId: districtId, pincode: pincode },
+                success: function (data) {
+                    $("#partialPlaceHolder").html("");
+                    $("#partialPlaceHolder").html(data);
+                }
+            });
+        }
+    </script>
+}
+
+
