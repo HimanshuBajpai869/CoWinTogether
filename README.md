@@ -11,5 +11,12 @@ Areas Covered in the Application
 
 ## Demo :
 
+Part - 1 :
 https://user-images.githubusercontent.com/52653296/116817424-e3739380-ab83-11eb-8501-9263fd87505b.mp4
+
+Part -2 :
+https://user-images.githubusercontent.com/52653296/118488443-5ca0e800-b739-11eb-92aa-d43b889bf900.mp4
+
+
+
 
