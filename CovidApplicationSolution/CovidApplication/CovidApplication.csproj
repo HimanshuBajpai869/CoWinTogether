@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\CovidReportAnalysis.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -114,12 +115,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\VaccinationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DistrictDetails.cs" />
+    <Compile Include="Models\MobileNumberDetails.cs" />
+    <Compile Include="Models\ReportDetails.cs" />
     <Compile Include="Models\SessionDetails.cs" />
     <Compile Include="Models\StateDetails.cs" />
     <Compile Include="Models\CenterDetails.cs" />
@@ -137,6 +141,9 @@
     <Content Include="Views\Vaccination\VaccinationForYoung.cshtml" />
     <Content Include="Views\Vaccination\_CenterDetailsBasedOnPinCode.cshtml" />
     <Content Include="Views\Vaccination\VaccineAvailability.cshtml" />
+    <Content Include="Views\Common\AnalyzeCovidReport.cshtml" />
+    <Content Include="Views\Common\EvaluateTestScore.cshtml" />
+    <Content Include="Views\Common\GenerateOTP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
